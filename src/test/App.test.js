@@ -1,7 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from '../App';
-import { shallow } from 'enzyme';
+import Home from '../Home';
+import Table from '../Table';
+import { shallow , mount} from 'enzyme';
 import '../setupTest';
 
 it('renders without crashing', () => {
@@ -10,10 +12,33 @@ it('renders without crashing', () => {
   ReactDOM.unmountComponentAtNode(div);
 });
 
-describe('MyComponent', () => {
-  it('should render correctly in "debug" mode', () => {
-    const component = shallow(<App debug />);
+it('initial characters get loaded', () => {
+  const wrapper  = shallow(<Home />);
+  const actual = wrapper.state().characters;
+  const expected  = [
+    {name: 'Jane', job: 'Software Engineer'}
+  ];
+  expect(actual).toEqual(expected);
+});
 
-    expect(component).toMatchSnapshot();
-  });
+it('item gets deleted', () => {
+  const wrapper  = mount(<Home />);
+
+  const table = wrapper.find((Table));
+  console.log(table);
+  const deleteButton = table.find('#button');
+  console.log(deleteButton);
+
+  expect(wrapper.state().characters.length).toEqual(1);
+  deleteButton.simulate('click');
+  expect(wrapper.state().characters.length).toEqual(0);
+});
+
+
+describe('MyComponent', () => {
+  // it('should render correctly in "debug" mode', () => {
+  //   const component = shallow(<App debug />);
+  //
+  //   expect(component).toMatchSnapshot();
+  // });
 });

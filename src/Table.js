@@ -21,7 +21,7 @@ class Table extends Component {
                     <tr key={index}>
                         <td>{row.name}</td>
                         <td>{row.job}</td>
-                        <td><button onClick={() => removeCharacter(index)}>Delete</button></td>
+                        <td><button  id="button" onClick={() => removeCharacter(index)}>Delete</button></td>
                     </tr>
                 )
             });

@@ -7,8 +7,7 @@ class Home extends Component {
     state = {
         characters: [
             {name: 'Jane', job: 'Software Engineer'}
-        ],
-        userText:''
+        ]
     };
 
     removeCharacter = index => {
