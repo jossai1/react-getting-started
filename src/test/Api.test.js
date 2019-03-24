@@ -5,7 +5,6 @@ import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
 import { shallow , mount} from 'enzyme';
 import '../setupTest';
-import Home from "./App.test";
 
 describe("Wiki Api component", () => {
     test('renders without crashing', () => {
