@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Table from './Table';
 import './App.css';
 import Form from "./Form";
+import { withRouter } from "react-router";
 
 class Home extends Component {
     state = {
@@ -42,4 +43,4 @@ class Home extends Component {
   }
 }
 
-export default Home;
+export default withRouter(Home);
